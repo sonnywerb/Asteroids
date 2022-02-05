@@ -30,9 +30,12 @@ public class AsteroidsApplication extends Application{
         pane.setPrefSize(WIDTH, HEIGHT);
         pane.setStyle("-fx-background-color: black");
         
+        // loading custom font
+        Font retroFont = Font.loadFont("file:resources/fonts/windows_command_prompt.ttf", 15);
+        
         // points
-        Text text = new Text(10, 20, "Points: 0");
-        text.setFont(Font.font("Helvetica", 15));
+        Text text = new Text(10, 20, "POINTS: 0");
+        text.setFont(retroFont);
         text.setFill(Color.WHITE);
         pane.getChildren().add(text);
         AtomicInteger points = new AtomicInteger();
@@ -120,7 +123,7 @@ public class AsteroidsApplication extends Application{
             
                     //points for hitting projectiles
                     if(!projectile.isAlive()) {
-                        text.setText("Points: " + points.addAndGet(1000));
+                        text.setText("POINTS: " + points.addAndGet(1000));
                     }
                 });
                 
@@ -160,8 +163,9 @@ public class AsteroidsApplication extends Application{
                        stackPane.setPrefSize(WIDTH, HEIGHT);
                        stackPane.setStyle("-fx-background-color: black");
                        
-                       gameOver.setText("Game Over \nScore: " + points.get());
-                       gameOver.setFont(Font.font("Helvetica", 100));
+                       gameOver.setText("GAME OVER \nPOINTS: " + points.get());
+                       Font retroFont = Font.loadFont("file:resources/fonts/windows_command_prompt.ttf", 100);
+                       gameOver.setFont(retroFont);
                        gameOver.setFill(Color.WHITE);
                        
                        stackPane.getChildren().add(gameOver);
